@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ID Input and User List</title>
+
+</head>
+<body>
+  <div class="container my-4">
+    <!-- Input Section -->
+    <div class="card shadow-sm p-4 mb-4">
+      <h3 class="text-center mb-3"> ID</h3>
+      
+        <div class="input-group mb-3">
+          <input [(ngModel)]="membershipId" placeholder="12345"  (keydown.enter)="checkSubscription()" onkeypress="ch" type="text" class="form-control" placeholder="Enter your ID" aria-label="ID" required>
+          <button class="btn btn-dark" type="button">Revisa</button>
+        </div>
+      
+    </div>
+
+    <!-- User List Section -->
+    <div>
+      <h4 class="mb-3">Usuarios que ingresaron hoy </h4>
+      <ul class="list-group"  >
+        <!-- User 1 -->
+        <li class="list-group-item d-flex align-items-center {{isExpired(entry.exp) ? 'bg-danger' : 'bg-success'}} text-white"  *ngFor="let entry of entries" 
+        (click)="goToUser(entry.user_id)" >
+            
+            <img
+            class="circle-image"
+            [src]="'data:image/jpeg;base64,' + bufferToBase64(entry.image.data) || ''"
+            alt="Stored Image"
+          />                      <div>
+            <strong >{{entry.user_id}} - {{ entry.name }}</strong>
+            <p class="mb-0 text-white"> {{ entry.exp }} </p>
+            
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+  
+</body>
+</html>

@@ -1,0 +1,15 @@
+    /* Add styling for the circle image */
+    .circle-image {
+        width: 50px; /* Set the desired width */
+        height: 50px; /* Set the desired height */
+        border-radius: 50%; /* Make it circular */
+        margin-right: 15px; /* Add spacing between image and text */
+        object-fit: cover; /* Ensure the image fills the space proportionally */
+      }
+      .list-group-item {
+        display: flex;
+        align-items: center;
+      }
+      .list-group-item div {
+        flex: 1; /* Make the text content occupy remaining space */
+      }

@@ -1,0 +1,73 @@
+<div class="container my-4">
+    <h2>Edit User</h2>
+    <img
+    class="circle-image"
+    [src]="'data:image/jpeg;base64,' + bufferToBase64(user.image.data) || ''"
+    alt="Stored Image"
+  />
+    <!-- User Form -->
+    <form (ngSubmit)="updateUser()">
+      <!-- Name Field -->
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input
+          type="text"
+          id="name"
+          class="form-control"
+          [(ngModel)]="user.name"
+          name="name"
+          required
+        />
+      </div>
+  
+      <!-- Expiration Date Field -->
+      <div class="mb-3">
+        <label for="exp" class="form-label">Expiration Date</label>
+        <input
+          type="date"
+          id="exp"
+          class="form-control"
+          [(ngModel)]="user.exp"
+          name="exp"
+          required
+        />
+      </div>
+  
+      <!-- Gym ID Field -->
+      <div class="mb-3">
+        <label for="gym_id" class="form-label">Gym ID</label>
+        <input
+          type="text"
+          id="gym_id"
+          class="form-control"
+          [(ngModel)]="user.gym_id"
+          name="gym_id"
+          required
+        />
+      </div>
+  
+      <!-- Image Upload -->
+      <div class="mb-3">
+        <label for="image" class="form-label">Profile Picture</label>
+        <div class="mb-2">
+          <img
+            *ngIf="imagePreview || imageSrc"
+            [src]="imagePreview || imageSrc"
+            alt="Profile Picture"
+            class="img-thumbnail"
+            style="width: 100px; height: 100px; object-fit: cover;"
+          />
+        </div>
+        <input
+          type="file"
+          id="image"
+          class="form-control"
+          (change)="onFileSelected($event)"
+        />
+      </div>
+  
+      <!-- Save Button -->
+      <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
+  </div>
+  

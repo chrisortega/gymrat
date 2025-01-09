@@ -1,0 +1,7 @@
+.circle-image {
+    width: 200px; /* Set the desired width */
+    height: 200px; /* Set the desired height */
+    border-radius: 50%; /* Make it circular */
+    margin-right: 15px; /* Add spacing between image and text */
+    object-fit: cover; /* Ensure the image fills the space proportionally */
+  }
